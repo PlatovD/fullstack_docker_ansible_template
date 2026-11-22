@@ -1,0 +1,12 @@
+compose_project_name: "booking_cli_mem"
+enable_postgres: false
+enable_front: false
+
+app_mode: "cli"
+storage_type: "memory"
+ui_mode: "cli"
+java_opts: "-Xms128m -Xmx512m"
+app_port: 8081
+
+enable_dozzle: true
+dozzle_port: 8888

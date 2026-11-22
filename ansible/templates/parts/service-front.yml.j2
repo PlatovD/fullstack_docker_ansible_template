@@ -1,0 +1,7 @@
+front:
+    build:
+      context: "{{ project_root }}"
+      dockerfile: "front/Dockerfile"
+    ports:
+      - "{{ front_port | default(8080) }}:8080"
+

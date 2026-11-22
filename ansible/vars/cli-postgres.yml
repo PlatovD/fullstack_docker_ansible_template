@@ -1,0 +1,21 @@
+compose_project_name: "booking_cli_postgre"
+enable_postgres: true
+enable_front: false
+
+# Настройки Java-приложения
+app_mode: "cli"
+storage_type: "postgres"
+ui_mode: "cli"
+java_opts: "-Xms128m -Xmx512m"
+app_port: 8081
+
+# Настройки PostgreSQL
+postgres_db: "${POSTGRES_DB}"
+postgres_user: "${POSTGRES_USER}"
+postgres_password: "${POSTGRES_PASSWORD}"
+postgres_port: 5432
+
+enable_dozzle: true
+dozzle_port: 8888
+
+

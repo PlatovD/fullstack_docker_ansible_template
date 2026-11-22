@@ -1,0 +1,23 @@
+compose_project_name: "booking_web_pg"
+enable_postgres: true
+enable_front: true
+
+# Настройки Java-приложения
+app_mode: "web"
+storage_type: "postgres"
+ui_mode: "web"
+java_opts: "-Xms128m -Xmx512m"
+app_port: 8081
+
+# Настройки фронтенда
+front_port: 8080
+
+# Настройки PostgreSQL
+postgres_db: "${POSTGRES_DB}"
+postgres_user: "${POSTGRES_USER}"
+postgres_password: "${POSTGRES_PASSWORD}"
+postgres_port: 5432
+
+enable_dozzle: true
+dozzle_port: 8888
+

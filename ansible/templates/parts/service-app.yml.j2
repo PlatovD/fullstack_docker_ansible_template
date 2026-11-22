@@ -1,0 +1,25 @@
+app:
+    build:
+      context: "{{ project_root }}"
+      dockerfile: "app/Dockerfile"
+    environment:
+      APP_MODE: "{{ app_mode | default('cli') }}"
+      STORAGE_TYPE: "{{ storage_type | default('memory') }}"
+      UI_MODE: "{{ ui_mode | default('cli') }}"
+      JAVA_OPTS: "{{ java_opts | default('') }}"
+{% if enable_postgres | default(false) | bool %}
+      DB_HOST: "postgres"
+      DB_PORT: "5432"
+      DB_NAME: "{{ postgres_db }}"
+      DB_USER: "{{ postgres_user }}"
+      DB_PASSWORD: "{{ postgres_password }}"
+    depends_on:
+      - postgres
+{% endif %}
+{% if (app_mode | default('cli')) == 'cli' %}
+    stdin_open: true
+    tty: true
+{% elif app_port is defined %}
+    ports:
+      - "{{ app_port }}:8081"
+{% endif %}

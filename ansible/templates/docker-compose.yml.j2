@@ -1,0 +1,18 @@
+services:
+  {% include 'parts/service-app.yml.j2' %}
+
+{% if enable_postgres | default(false) | bool %}
+  {% include 'parts/service-postgres.yml.j2' %}
+{% endif %}
+
+{% if enable_front | default(false) | bool %}
+  {% include 'parts/service-front.yml.j2' %}
+{% endif %}
+
+{% if enable_dozzle | default(false) | bool %}
+  {% include 'parts/service-dozzle.yml.j2' %}
+{% endif %}
+
+{% if enable_postgres | default(false) | bool %}
+{% include 'parts/volumes.yml.j2' %}
+{% endif %}
